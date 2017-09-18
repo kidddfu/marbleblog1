@@ -26,7 +26,7 @@ h1 {
     color: #3b3b3b;
 }
 
-.templatemo_logo a:hover {
+.logo a:hover {
 	text-decoration: none;
 }
 /*menu*/
@@ -133,16 +133,16 @@ h1 {
 .banner div.slide_caption p {
     font-size: 16px;
 }
-.templatemo_banner_slide_01 {
-    background: url('../images/templatemo_banner_slide_01.jpg');
+.banner_slide_01 {
+    background: url('../images/banner_slide_01.jpg');
     background-size: cover;
 }
-.templatemo_banner_slide_02 {
-    background: url('../images/templatemo_banner_slide_02.jpg');
+.banner_slide_02 {
+    background: url('../images/banner_slide_02.jpg');
     background-size: cover;
 }
-.templatemo_banner_slide_03 {
-    background: url('../images/templatemo_banner_slide_03.jpg');
+.banner_slide_03 {
+    background: url('../images/banner_slide_03.jpg');
     background-size: cover;
 }
 .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}

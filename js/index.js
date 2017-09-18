@@ -6,17 +6,17 @@ jQuery(function(){
     //banner slide
     $('.banner').unslider({fluid: true});
     $(window).on("load scroll resize", function(){
-        banner_height = ($(document).width()/1920) * 600;
+        banner_height = ($(document).width()/1920) * 760;
         $('.banner').height(banner_height);
         $('.banner ul li').height(banner_height);
         if(banner_height > 250){
-            caption_margin_top = (banner_height-250)/2;
+            caption_margin_top = (banner_height-100)/2;
             $('.banner .slide_caption:hidden').show();
             $('.banner .slide_caption').css({"margin-top":caption_margin_top});
         }else{
             $('.banner .slide_caption').hide();
         }
-        $("#templatemo_banner_slide > ul > li").css({"background-size":"cover"});
+        $("#banner_slide > ul > li").css({"background-size":"cover"});
     });
     //about icon
     $(window).on("load scroll resize", function(){
@@ -49,7 +49,7 @@ jQuery(function(){
         $(".pre_next_wap").height(testimonial_child_height);
     });
     $("#prev_testimonial").click(function(){
-        $.current_testimonial.effect("explode",{},500,function(){
+        $.current_testimonial.effect("fade",{},200,function(){
                 $.current_testimonial_prev = ($.current_testimonial.index() == 0) ? $(".testimonial_text").last() : $.current_testimonial.prev() ;
                 $.current_testimonial_prev.fadeIn();
                 $.current_testimonial = $.current_testimonial_prev;
@@ -57,7 +57,7 @@ jQuery(function(){
         return false;
     });
     $("#next_testimonial").click(function(){
-        $.current_testimonial.effect("explode",{},500,function(){
+        $.current_testimonial.effect("fade",{},200,function(){
                 $.current_testimonial_next = ($.current_testimonial.index() == $(".testimonial_text").last().index() ) ? $(".testimonial_text").first() : $.current_testimonial.next() ;
                 $.current_testimonial_next.fadeIn();
                 $.current_testimonial = $.current_testimonial_next;
@@ -201,6 +201,12 @@ jQuery(function(){
             $("#templatemo_mobile_menu").animate({"right":0});
             return false;
     });
+    $(window).on("load resize", function(){
+            if($(window).width()>768){
+                $("#templatemo_mobile_menu").css({"right":-1500});
+            }
+    });
+
     jQuery.fn.anchorAnimate = function(settings) {
         settings = jQuery.extend({
             speed : 1100
@@ -279,7 +285,7 @@ function initialize(){
     //define map
     var map;
     //lat lng
-    myLatlng = new google.maps.LatLng(16.800000, 96.150000);
+    myLatlng = new google.maps.LatLng(16.8496189,96.1288854);
     //define style
     var styles = [
         {
@@ -296,11 +302,11 @@ function initialize(){
     ];
     //map options
     var mapOptions = {
-        zoom: 14,
+        zoom: 16,
         center: myLatlng ,
         mapTypeControlOptions: {mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']} ,
         panControl: false , //hide panControl
-        zoomControl: false , //hide zoomControl
+        zoomControl: true , //hide zoomControl
         mapTypeControl: false , //hide mapTypeControl
         scaleControl: false , //hide scaleControl
         streetViewControl: false , //hide streetViewControl
